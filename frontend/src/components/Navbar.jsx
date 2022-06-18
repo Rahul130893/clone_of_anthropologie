@@ -182,10 +182,12 @@ export const Navbar = () => {
         </Anthro>
         <Anthro>
           <InputBox placeholder="Search Anthropologie" />
-
-          <ShoppingBagOutlinedIcon
-            style={{ color: "teal", marginTop: "8px" }}
-          />
+          <Link to={"/cart"}>
+            
+            <ShoppingBagOutlinedIcon
+              style={{ color: "teal", marginTop: "8px" }}
+            />
+          </Link>
         </Anthro>
       </Layers3>
 

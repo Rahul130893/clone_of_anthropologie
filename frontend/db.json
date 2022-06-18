@@ -1,0 +1,126 @@
+{
+  "cloths": [
+    {
+      "id": 1,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130646420009_014_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress",
+      "price": "168.00"
+    },
+    {
+      "id": 2,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130728470001_069_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Devotion Twins Embroidered Ella Tunic Dress",
+      "price": "250.00"
+    },
+    {
+      "id": 3,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4123650590131_211_b15?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Maeve The Colette Cropped Wide-leg Pants",
+      "price": "120.00"
+    },
+    {
+      "id": 4,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4110347800056_074_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Bl-nk Miranda Peasant Blouse",
+      "price": "128.00"
+    },
+    {
+      "id": 5,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130647160057_031_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Robin Tiered Mini Dress",
+      "price": "138.00"
+    },
+    {
+      "id": 6,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130646420031_069_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Mini Dress",
+      "price": "140.00"
+    },
+    {
+      "id": 7,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130652010001_070_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Elyse Bias Slip Dress",
+      "price": "120.00"
+    },
+    {
+      "id": 8,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4112347800042_066_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Bn-Lk Staphanie Top",
+      "price": "108.00"
+    },
+    {
+      "id": 9,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4123650590131_060_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Maeve The Colette Cropped Wide-leg Pants",
+      "price": "125.00"
+    },
+    {
+      "id": 10,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130728470001_015_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Devotion Twins Embroidered Ella Tunic Dress",
+      "price": "248.00"
+    },
+    {
+      "id": 11,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130370060072_063_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress",
+      "price": "170.00"
+    },
+    {
+      "id": 12,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130264840011_040_b14?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress",
+      "price": "148.00"
+    },
+    {
+      "id": 13,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130578570014_066_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress:Lenin Edition",
+      "price": "148.00"
+    },
+    {
+      "id": 14,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130578570013_010_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress:Lenin Edition",
+      "price": "168.00"
+    },
+    {
+      "id": 15,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130578570013_010_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress:Lenin Edition",
+      "price": "168.00"
+    },
+    {
+      "id": 16,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130646420009_011_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress",
+      "price": "168.00"
+    },
+    {
+      "id": 17,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130646420009_020_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "The Somerest Maxi Dress",
+      "price": "168.00"
+    },
+    {
+      "id": 18,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4112609690111_001_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "T.La Classic V-neck Tee",
+      "price": "68.00"
+    },
+    {
+      "id": 19,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4130728470001_029_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "Devotion Twins Embroidered Ella Tunic Dress",
+      "price": "268.00"
+    },
+    {
+      "id": 20,
+      "image": "https://images.urbndata.com/is/image/Anthropologie/4112609690192_055_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349",
+      "title": "T.La Flutter-Sleeved Tee",
+      "price": "48.00"
+    }
+  ],
+  "shoes": [{}, {}],
+  "accessories": [{}, {}]
+}
