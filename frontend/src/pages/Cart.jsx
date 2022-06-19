@@ -40,7 +40,7 @@ export const Cart = () => {
   );
 };
 
-function CartItems(image, title, price) {
+function CartItems({image, title, price}) {
   return (
     <div
       style={{
@@ -53,7 +53,7 @@ function CartItems(image, title, price) {
       }}
     >
       <div>
-        <img src={image} alt="" />
+        <img style={{width:"300px", height:"400px"}} src={image} alt="" />
         <p>{title}</p>
         <h3>{price}</h3>
       </div>
