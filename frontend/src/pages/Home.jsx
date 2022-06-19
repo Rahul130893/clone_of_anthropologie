@@ -131,21 +131,19 @@ export const Home = () => {
             />
             <ImageTop
               style={{ height: "450px", width: "100%" }}
-              src="https://images.ctfassets.net/5de70he6op10/1TgGoVz8r3iv7bXrpqI7O0/0b8d4b9250154b23aefbd2c9161569ee/RR_Bedding.jpg?w=856&q=80&fm=webp"
+              src="https://images.ctfassets.net/5de70he6op10/2BG4wAKOTOXkvO3bvVg8Qq/91aa119466478faf57466843da105779/061322_HPG_2x_RR_Pants.jpg?w=856&q=80&fm=webp"
             />
             <ImageTop
               style={{ height: "450px", width: "100%" }}
-              src="https://images.ctfassets.net/5de70he6op10/1TgGoVz8r3iv7bXrpqI7O0/0b8d4b9250154b23aefbd2c9161569ee/RR_Bedding.jpg?w=856&q=80&fm=webp"
+              src="https://images.ctfassets.net/5de70he6op10/52bbfxp2kzymVZ339bWds3/1a5c7775867ab88333cda43eba693c7c/061322_HPG_2x_RR_Kitchen_Dining.jpg?w=856&q=80&fm=webp"
             />
             <ImageTop
               style={{ height: "450px", width: "100%" }}
-              src="https://images.ctfassets.net/5de70he6op10/1TgGoVz8r3iv7bXrpqI7O0/0b8d4b9250154b23aefbd2c9161569ee/RR_Bedding.jpg?w=856&q=80&fm=webp"
+              src="https://images.ctfassets.net/5de70he6op10/7jPtxFsyU2ZHnQnEMa223v/36cd69a86c3d89e4f0d7ac2ecd2bc76d/RR_Candle.jpg?w=856&q=80&fm=webp"
             />
           </MiddleRight>
         </Middle>
-        <Double
-          style={{ height: "620px", width: "100%" }}
-        >
+        <Double style={{ height: "620px", width: "100%" }}>
           <Single src="https://images.ctfassets.net/5de70he6op10/5sDk11qKleSdvIOvZc35OD/3eee309aaddeabaa38696b5c92e526a2/4th-Row-2UP_Shop-All.jpg?w=1301&q=80&fm=webp" />
           <Single src="https://images.ctfassets.net/5de70he6op10/6zS5hd8iXJvVo6XdWajuVz/e1938a3f0f4a368c3a42cefe3ae7f37b/4th-Row-2UP_New-Apparel-_-Accessories.jpg?w=1301&q=80&fm=webp" />
         </Double>
