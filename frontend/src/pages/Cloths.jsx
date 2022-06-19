@@ -4,11 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { store } from "../Redux/store";
 import { useEffect } from "react";
 import { FetchData } from "../Redux/cloths.js/action";
-import { Product } from "./Product";
+// import { Product } from "./Product";
+//import { useParams } from "react-router-dom"
+import { Card } from "../components/Card";
+import { Link } from "react-router-dom";
 
 export const Cloths = () => {
   const cloths = useSelector((store) => store.clothData.cloths);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (cloths?.length === 0) {
       dispatch(FetchData());
@@ -18,7 +22,7 @@ export const Cloths = () => {
   return (
     <div>
       <Navbar />
-      {store.loading && <div>....loading</div>}
+   
       <div
         style={{
           width: "85%",
@@ -31,12 +35,17 @@ export const Cloths = () => {
       >
         {cloths.map((cloth) => {
           return (
-            <Product
-              key={cloth.id}
-              image={cloth.image}
-              title={cloth.title}
-              price={cloth.price}
-            />
+            <div key={cloth.id}>
+              <Link to={`/cloths/${cloth.id}`}>
+                <div>
+                  <Card
+                    image={cloth.image}
+                    title={cloth.title}
+                    price={cloth.price}
+                  />
+                </div>
+              </Link>
+            </div>
           );
         })}
       </div>

@@ -3,7 +3,9 @@ import * as types from "./actionTypes";
 const initial = {
   cloths: [],
     error: "",
-  loading: false
+    currentProduct:{},
+    loading: false,
+  cart:[]
 };
 
 const ClothReducer = (state = initial, action) => {
@@ -23,6 +25,69 @@ const ClothReducer = (state = initial, action) => {
         loading: false,
       };
     case types.FETCH_DATA_FAIL:
+      return {
+        ...state,
+
+        error: payload,
+        loading: false,
+      };
+    case types.SINGLE_FETCH_DATA_REQ:
+      return {
+        ...state,
+        error: "",
+
+        loading: true,
+      };
+    case types.SINGLE_FETCH_DATA_SUCC:
+      return {
+        ...state,
+        currentProduct: payload,
+        error: "",
+        loading: false,
+      };
+    case types.SINGLE_FETCH_DATA_FAIL:
+      return {
+        ...state,
+
+        error: payload,
+        loading: false,
+      };
+    case types.ADD_PRO_CART_REQ:
+      return {
+        ...state,
+        error: "",
+
+        loading: true,
+      };
+    case types.ADD_PRO_CART_SUCC:
+      return {
+        ...state,
+        cart: [...state.cart, payload],
+        error: "",
+        loading: false,
+      };
+    case types.ADD_PRO_CART_FAIL:
+      return {
+        ...state,
+
+        error: payload,
+        loading: false,
+      };
+    case types.FETCH_CART_REQ:
+      return {
+        ...state,
+        error: "",
+
+        loading: true,
+      };
+    case types.FETCH_CART_SUCC:
+      return {
+        ...state,
+        cart: [...payload],
+        error: "",
+        loading: false,
+      };
+    case types.FETCH_CART_FAIL:
       return {
         ...state,
 

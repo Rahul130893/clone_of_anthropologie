@@ -16,12 +16,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cloths" element={<Cloths />} />
+        <Route path="/cloths/:id" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/shoes" element={<Shoes />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/product" element={<Product/>} />
+      
       </Routes>
     </div>
   );

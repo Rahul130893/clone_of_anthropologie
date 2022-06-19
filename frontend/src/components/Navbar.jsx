@@ -7,6 +7,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
 import image1 from "../images/Anthropologie.svg";
 import logo2 from "../images/logo2.svg";
+import {Counter} from "./Counter"
 const Container = styled.div`
   border: 1px solid transparent;
   width: 100%;
@@ -166,7 +167,7 @@ export const Navbar = () => {
           </English>
 
           <English>
-            <Link to={"/signin"} style={{ textDecoration: "none" }}>
+            <Link to={"/login"} style={{ textDecoration: "none" }}>
               SignIn
             </Link>
           </English>
@@ -188,6 +189,7 @@ export const Navbar = () => {
               style={{ color: "teal", marginTop: "8px" }}
             />
           </Link>
+          <Counter style={{marginTop:"10px", color:"teal"}} />
         </Anthro>
       </Layers3>
 
