@@ -24,7 +24,7 @@ const FetchData = (payload) => {
   return (dispatch) => {
     dispatch(FetchDataReq);
 
-    Axios.get("http://localhost:8000/cloths", {
+    Axios.get("https://ov9fh4.sse.codesandbox.io/cloths", {
       params: {
         ...payload,
       },
@@ -55,7 +55,7 @@ const Single_FetchDataFail = (payload) => {
 
 const Single_FetchData = (id) => (dispatch) => {
   dispatch(Single_FetchDataReq());
-  Axios.get(`http://localhost:8000/cloths/${id}`)
+  Axios.get(`https://ov9fh4.sse.codesandbox.io/cloths/${id}`)
     .then((r) => dispatch(Single_FetchDataSucc(r.data)))
     .catch((e) => Single_FetchDataFail(e.data));
 };
@@ -81,7 +81,7 @@ const Add_Pro_Fail = (payload) => {
 
 const AddProCart = (product) => (dispatch) => {
   dispatch(Add_Pro_Req());
-  Axios.post("http://localhost:8000/cart", product)
+  Axios.post("https://ov9fh4.sse.codesandbox.io/cart", product)
     .then((r) => dispatch(Add_Pro_Succ(r.data)))
     .catch((e) => dispatch(Add_Pro_Fail(e.data)));
 };
@@ -107,7 +107,7 @@ const Fetch_Cart_Fail = (payload) => {
 
 const fetchCart = (payload) => (dispatch) => {
   dispatch(fetchCart());
-  Axios.get("https://localhost:8000/cart", {
+  Axios.get("https://ov9fh4.sse.codesandbox.io/cart", {
     params: {
       ...payload,
     },
