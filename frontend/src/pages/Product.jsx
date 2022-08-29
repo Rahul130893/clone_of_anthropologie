@@ -6,17 +6,17 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
 export const Product = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
 
-  console.log(id);
+  console.log(_id);
   const dispatch = useDispatch();
   const currentProduct = useSelector((store) => store.clothData.currentProduct);
 
   useEffect(() => {
-    if (id) {
-      dispatch(Single_FetchData(id));
+    if (_id) {
+      dispatch(Single_FetchData(_id));
     }
-  }, [dispatch, id]);
+  }, [dispatch, _id]);
     console.log(currentProduct);
     
     const addHandler = () => {
@@ -28,42 +28,31 @@ export const Product = () => {
       <Navbar />
       <br />
       <br />
-      <div
-        style={{
-          width: "75%",
-          border: "1px solid red",
-          height: "700px",
-          margin: "auto",
-          display: "flex",
-        }}
-      >
-        <div style={{ width: "60%", height: "100%" }}>
+      <div className="productBox">
+        <div style={{ width: "50%", height: "100%" }}>
           <img
-            style={{ width: "80%", height: "80%" }}
+            style={{ width: "100%", height: "100%" }}
             src={currentProduct.image}
             alt="img"
           />
-          <p>{currentProduct.title}</p>
-          <h3>${currentProduct.price}</h3>
+          
         </div>
-        <div style={{ width: "40%", height: "100%" }}>
-          <p style={{ fontSize: "25px" }}>Name:- {currentProduct.title}</p>
-          <p style={{ fontSize: "20px" }}>Price:- ${currentProduct.price}</p>
-          <button onClick={addHandler}
-            style={{
-              background: "#4b5666",
-              color: "white",
-              padding: "15px 60px",
-                border: "none",
-              cursor: "pointer"
-            }}
+        <div className="detailBox">
+          <div>
+            <p>Name:- {currentProduct.title}</p>
+            <p>Price:- ${currentProduct.price}</p>
+          </div>
+
+          <button
+            onClick={addHandler}
+         
           >
             Add To Basket{" "}
           </button>
         </div>
       </div>
 
-      <Footer />    
+      <Footer />
     </div>
   );
 };

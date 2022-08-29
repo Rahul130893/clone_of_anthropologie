@@ -24,12 +24,12 @@ const FetchData = (payload) => {
   return (dispatch) => {
     dispatch(FetchDataReq);
 
-    Axios.get("https://ov9fh4.sse.codesandbox.io/cloths", {
+    Axios.get("https://anthro-clone.herokuapp.com/cloth", {
       params: {
         ...payload,
       },
     })
-      .then((r) => dispatch(FetchDataSucc(r.data)))
+      .then((r) => dispatch(FetchDataSucc(r.data.cloths)))
       .catch((e) => dispatch(FetchDataFail(e.data)));
   };
 };
@@ -53,9 +53,9 @@ const Single_FetchDataFail = (payload) => {
   };
 };
 
-const Single_FetchData = (id) => (dispatch) => {
+const Single_FetchData = (_id) => (dispatch) => {
   dispatch(Single_FetchDataReq());
-  Axios.get(`https://ov9fh4.sse.codesandbox.io/cloths/${id}`)
+  Axios.get(`https://anthro-clone.herokuapp.com/cloth/${_id}`)
     .then((r) => dispatch(Single_FetchDataSucc(r.data)))
     .catch((e) => Single_FetchDataFail(e.data));
 };
@@ -81,7 +81,7 @@ const Add_Pro_Fail = (payload) => {
 
 const AddProCart = (product) => (dispatch) => {
   dispatch(Add_Pro_Req());
-  Axios.post("https://ov9fh4.sse.codesandbox.io/cart", product)
+  Axios.post("https://anthro-clone.herokuapp.com/cart", product)
     .then((r) => dispatch(Add_Pro_Succ(r.data)))
     .catch((e) => dispatch(Add_Pro_Fail(e.data)));
 };
@@ -106,14 +106,14 @@ const Fetch_Cart_Fail = (payload) => {
 };
 
 const fetchCart = (payload) => (dispatch) => {
-  dispatch(fetchCart());
-  Axios.get("https://ov9fh4.sse.codesandbox.io/cart", {
+  dispatch(Fetch_Cart_Req());
+  Axios.get("https://anthro-clone.herokuapp.com/cart", {
     params: {
       ...payload,
     },
   })
-    .then((r) => dispatch(types.FETCH_CART_SUCC(r.data)))
-    .catch((e) => dispatch(types.FETCH_CART_FAIL(e.data)));
+    .then((r) => dispatch(Fetch_Cart_Succ(r.data.cartItems)))
+    .catch((e) => dispatch(Fetch_Cart_Fail(e.data)));
 };
 
 export { FetchData, Single_FetchData, AddProCart, fetchCart };

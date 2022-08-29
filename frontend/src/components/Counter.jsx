@@ -14,7 +14,9 @@ export const Counter = () => {
 
   return (
     <div>
-      <p>{cart?.length ? cart.length : 0}</p>
+      <p style={{ marginTop: "12px", color: "#4b5666" }}>
+        {cart?.length ? cart.length : 0}
+      </p>
     </div>
   );
 };
