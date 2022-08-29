@@ -12,31 +12,35 @@ import { Link } from "react-router-dom";
 export const Cloths = () => {
   const cloths = useSelector((store) => store.clothData.cloths);
   const dispatch = useDispatch();
-
-  useEffect(() => {
+ useEffect(() => {
     if (cloths?.length === 0) {
       dispatch(FetchData());
     }
   }, [dispatch, cloths?.length]);
   console.log(cloths);
+
   return (
     <div>
       <Navbar />
-   
+     {cloths?.length===0 ? <div>....waiting</div> : null }
       <div
         style={{
           width: "85%",
           marginLeft: "200px",
+          marginTop: "40px",
           display: "flex",
           flexWrap: "wrap",
-          gap: "30px",
-          border: "1px solid black",
+          gap: "40px",
+          
         }}
       >
         {cloths.map((cloth) => {
           return (
-            <div key={cloth.id}>
-              <Link to={`/cloths/${cloth.id}`}>
+            <div key={cloth._id}>
+              <Link
+                to={`/cloths/${cloth._id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <div>
                   <Card
                     image={cloth.image}
