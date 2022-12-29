@@ -8,15 +8,15 @@ export const Counter = () => {
 
   useEffect(() => {
     if (cart?.length === 0) {
-      dispatch(fetchCart);
+      dispatch(fetchCart());
     }
   }, [cart?.length, dispatch]);
 
   return (
-    <div>
-      <p style={{ marginTop: "12px", color: "#4b5666" }}>
+    <div
+   style={{ marginTop: "12px", color: "#4b5666" }}>
         {cart?.length ? cart.length : 0}
-      </p>
+      
     </div>
   );
 };

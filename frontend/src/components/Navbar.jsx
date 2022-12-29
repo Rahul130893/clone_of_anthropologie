@@ -136,6 +136,7 @@ const NavP = styled.p`
 `;
 
 export const Navbar = () => {
+  
   return (
     <Container>
       <Layers1>

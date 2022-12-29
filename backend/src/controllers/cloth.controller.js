@@ -21,6 +21,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+
 router.delete("/:id", async (req, res) => {
   try {
     const item = await Cloth.findByIdAndDelete(req.params.id).lean().exec();
