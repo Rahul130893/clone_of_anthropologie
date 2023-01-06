@@ -13,9 +13,9 @@ export const Counter = () => {
   }, [cart?.length, dispatch]);
 
   return (
-    <div
-   style={{ marginTop: "12px", color: "#4b5666" }}>
-        {cart?.length ? cart.length : 0}
+    <div style={{ marginTop: "12px", color: "#4b5666"}}>
+       
+      {cart?.length ? cart.length : "Your Cart is Empty"}
       
     </div>
   );

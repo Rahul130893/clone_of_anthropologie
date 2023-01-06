@@ -15,3 +15,16 @@ export const ADD_PRO_CART_FAIL = "ADD_PRO_CART_FAIL";
 export const FETCH_CART_REQ = "FETCH_CART_REQ";
 export const FETCH_CART_SUCC = "FETCH_CART_SUCC";
 export const FETCH_CART_FAIL = "FETCH_CART_FAIL";
+
+
+export const DELET_CART_REQ = "DELET_CART_REQ";
+export const DELET_CART_SUCC = "DELET_CART_SUCC";
+export const DELET_CART_FAIL = "DELET_CART_FAIL";
+
+export const ADD_ORDER_REQ = "ADD_ORDER_REQ";
+export const ADD_ORDER_SUCC = "ADD_ORDER_SUCC";
+export const ADD_ORDER_FAIL = "ADD_ORDER_FAIL";
+
+export const EMPTY_CART_REQ = "EMPTY_CART_REQ";
+export const EMPTY_CART_SUCC = "EMPTY_CART_SUCC";
+export const EMPTY_CART_FAIL = "EMPTY_CART_FAIL";

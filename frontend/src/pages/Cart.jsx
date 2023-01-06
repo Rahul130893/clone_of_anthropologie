@@ -2,7 +2,7 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { deletCartItmes } from "../Redux/cloths.js/action";
 import { fetchCart } from "../Redux/cloths.js/action";
 
 export const Cart = () => {
@@ -14,18 +14,45 @@ export const Cart = () => {
       dispatch(fetchCart());
     }
   }, [dispatch, cart?.length]);
-  console.log(cart);
+
+  const handleDelet = (id) => {
+    console.log(id);
+    dispatch(deletCartItmes(id));
+  };
+
   return (
     <div>
       <Navbar />
-      <div className="cartPage">
-        {cart.map((e) => {
-          return (
-            <div key={e._id}>
-              <CartItems title={e.title} price={e.price} image={e.image} />;
+      <div className="cartpagetop">
+        <div>
+          <div className="cartPage">
+            <h1>Basket</h1>
+            <div className="list">
+              <div>
+                <p>Item</p>
+                <p>Item Price</p>
+              </div>
             </div>
-          );
-        })}
+            {cart.map((e, i) => {
+              return (
+                <div key={i}>
+                  <CartItems
+                    title={e.title}
+                    price={e.price}
+                    image={e.image}
+                    id={e._id}
+                    handleDelet={handleDelet}
+                  />
+                  ;
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="order">
+          <h1>Order Summary</h1>
+          <div></div>
+        </div>
       </div>
 
       <Footer />
@@ -33,7 +60,7 @@ export const Cart = () => {
   );
 };
 
-function CartItems({ image, title, price }) {
+function CartItems({ image, title, price, id, handleDelet }) {
   return (
     <div className="cartItems">
       <img
@@ -41,13 +68,16 @@ function CartItems({ image, title, price }) {
         src={image}
         alt=""
       />
-
       <div>
-        <p>Name: {title}</p>
-        <p>Price: ${price}</p>
-      </div>
-      <div>
-        <button>Remove From Cart</button>
+        <div>
+          <p>{title}</p>
+        </div>
+        <div>
+          <p>${price}</p>
+        </div>
+        <div>
+          <button onClick={() => handleDelet(id)}>Remove From Cart</button>
+        </div>
       </div>
     </div>
   );

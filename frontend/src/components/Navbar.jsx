@@ -3,7 +3,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+
 import { Link } from "react-router-dom";
 import image1 from "../images/Anthropologie.svg";
 import logo2 from "../images/logo2.svg";
@@ -92,6 +92,9 @@ const Anthro = styled.div`
   height: 100%;
   display: flex;
   gap: 20px;
+
+  align-items: center;
+  padding-right: 10px;
 `;
 const Logo1 = styled.img`
   border-top: 3px solid teal;
@@ -164,13 +167,19 @@ export const Navbar = () => {
           </Icon>
 
           <English>
-            <Link to={"/signup"} style={{ textDecoration: "none" }}>
+            <Link
+              to={"/signup"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
               SignUp /
             </Link>
           </English>
 
           <English>
-            <Link to={"/login"} style={{ textDecoration: "none" }}>
+            <Link
+              to={"/login"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
               SignIn
             </Link>
           </English>
@@ -187,12 +196,11 @@ export const Navbar = () => {
         <Anthro>
           <InputBox placeholder="Search Anthropologie" />
           <Link to={"/cart"}>
-            
             <ShoppingBagOutlinedIcon
-              style={{ color: "teal", marginTop: "8px" }}
+              style={{ color: "teal", marginTop: "8px", fontSize: "30px" }}
             />
           </Link>
-          <Counter style={{marginTop:"10px", color:"teal"}} />
+          <Counter style={{ marginTop: "10px", color: "teal" }} />
         </Anthro>
       </Layers3>
 

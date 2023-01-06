@@ -24,7 +24,7 @@ const FetchData = (payload) => {
   return (dispatch) => {
     dispatch(FetchDataReq);
 
-    Axios.get("https://anthro-clone.herokuapp.com/cloth", {
+    Axios.get("https://anthropologie.onrender.com/cloth", {
       params: {
         ...payload,
       },
@@ -55,7 +55,7 @@ const Single_FetchDataFail = (payload) => {
 
 const Single_FetchData = (_id) => (dispatch) => {
   dispatch(Single_FetchDataReq());
-  Axios.get(`https://anthro-clone.herokuapp.com/cloth/${_id}`)
+  Axios.get(`https://anthropologie.onrender.com/cloth/${_id}`)
     .then((r) => dispatch(Single_FetchDataSucc(r.data)))
     .catch((e) => Single_FetchDataFail(e.data));
 };
@@ -81,7 +81,7 @@ const Add_Pro_Fail = (payload) => {
 
 const AddProCart = (product) => (dispatch) => {
   dispatch(Add_Pro_Req());
-  Axios.post("https://anthro-clone.herokuapp.com/cart", product)
+  Axios.post("https://anthropologie.onrender.com/cart", product)
     .then((r) => dispatch(Add_Pro_Succ(r.data)))
     .catch((e) => dispatch(Add_Pro_Fail(e.data)));
 };
@@ -107,7 +107,7 @@ const Fetch_Cart_Fail = (payload) => {
 
 const fetchCart = (payload) => (dispatch) => {
   dispatch(Fetch_Cart_Req());
-  Axios.get("https://anthro-clone.herokuapp.com/cart", {
+  Axios.get("https://anthropologie.onrender.com/cart", {
     params: {
       ...payload,
     },
@@ -116,4 +116,36 @@ const fetchCart = (payload) => (dispatch) => {
     .catch((e) => dispatch(Fetch_Cart_Fail(e.data)));
 };
 
-export { FetchData, Single_FetchData, AddProCart, fetchCart };
+
+const delet_Cart_Req = (payload) => {
+  return {
+    type: types.DELET_CART_REQ,
+    payload,
+  };
+};
+const delet_Cart_Succ = (payload) => {
+  return {
+    type: types.DELET_CART_SUCC,
+    payload,
+  };
+};
+const delet_Cart_Fail = (payload) => {
+  return {
+    type: types.DELET_CART_FAIL,
+    payload,
+  };
+};
+export const deletCartItmes = (id) => (dispatch) => {
+  dispatch(delet_Cart_Req());
+  Axios.delete(`https://anthropologie.onrender.com/cart/${id}`)
+    .then((r) => {
+      dispatch(delet_Cart_Succ(r.data));
+    })
+    .then((r) => {
+      dispatch(fetchCart());
+    })
+
+    .catch((e) => dispatch(delet_Cart_Fail(e.message)));
+};
+
+export { FetchData, Single_FetchData, AddProCart, fetchCart};

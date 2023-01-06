@@ -94,6 +94,27 @@ const ClothReducer = (state = initial, action) => {
         error: payload,
         loading: false,
       };
+    case types.DELET_CART_REQ:
+      return {
+        ...state,
+        error: "",
+
+        loading: true,
+      };
+    case types.DELET_CART_SUCC:
+      return {
+        ...state,
+        cart: [...state.cart, payload],
+        error: "",
+        loading: false,
+      };
+    case types.DELET_CART_FAIL:
+      return {
+        ...state,
+
+        error: payload,
+        loading: false,
+      };
     default:
       return state;
   }
