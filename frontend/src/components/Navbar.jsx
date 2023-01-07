@@ -166,21 +166,21 @@ export const Navbar = () => {
             <PersonOutlineOutlinedIcon />
           </Icon>
 
-          <English>
+          {/* <English>
             <Link
               to={"/signup"}
               style={{ textDecoration: "none", color: "black" }}
             >
               SignUp /
             </Link>
-          </English>
+          </English> */}
 
           <English>
             <Link
               to={"/login"}
               style={{ textDecoration: "none", color: "black" }}
             >
-              SignIn
+              SignIn / Signup
             </Link>
           </English>
         </IconDiv>
