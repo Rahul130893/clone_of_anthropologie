@@ -5,17 +5,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletCartItmes } from "../Redux/cloths.js/action";
 import { fetchCart } from "../Redux/cloths.js/action";
 
+
 export const Cart = () => {
   const cart = useSelector((store) => store.clothData.cart);
+  //const response = useSelector((store) => store.authReducer.token);
+  const auth = useSelector((store) => store.authReducer.auth);
+   
+    const response = JSON.parse(localStorage.getItem("token"));
+
   const dispatch = useDispatch();
 
+  //console.log(response)
+  // console.log("incart",auth)
+
   useEffect(() => {
-    if (cart?.length === 0) {
-      dispatch(fetchCart());
+   
+    const response = JSON.parse(localStorage.getItem("token"));
+     //dispatch(fetchCart(response.user._id))
+    if (response ) {
+      console.log(response, "hello")
+      dispatch(fetchCart(response.user._id));
     }
   }, [dispatch, cart?.length]);
 
-  const handleDelet = (id) => {
+  const handleDelet = (id) => { 
     console.log(id);
     dispatch(deletCartItmes(id));
   };
@@ -33,20 +46,23 @@ export const Cart = () => {
                 <p>Item Price</p>
               </div>
             </div>
-            {cart.map((e, i) => {
-              return (
-                <div key={i}>
-                  <CartItems
-                    title={e.title}
-                    price={e.price}
-                    image={e.image}
-                    id={e._id}
-                    handleDelet={handleDelet}
-                  />
-                  ;
-                </div>
-              );
-            })}
+            {response === null 
+              ? "You are not logged in"
+              : cart.map((e, i) => {
+                  return (
+                    <div key={i}>
+                      <CartItems
+                        title={e.title}
+                        price={e.price}
+                        image={e.image}
+                        id={e._id}
+                        handleDelet={handleDelet}
+                      />
+                      ;
+                    </div>
+                  );
+                })}
+            
           </div>
         </div>
         <div className="order">

@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
@@ -17,7 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { useEffect, useState } from "react";
-import logIn from "../Redux/auth/action";
+import {logIn }from "../Redux/auth/action";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import CustomizedDialogs from "../components/Dialog";
@@ -29,7 +28,7 @@ export const Login = () => {
   const error = useSelector((store) => store.authReducer.error);
   const auth = useSelector((store) => store.authReducer.auth);
 
-  console.log("one", response.token, error, auth);
+ 
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [userEmail, setUserEmail] = useState("");
@@ -51,9 +50,10 @@ export const Login = () => {
   };
   //console.log("two", response.token, error, auth);
   useEffect(() => {
+    
     if (response.token && auth && clicked) {
       setLoading(false);
-
+          localStorage.setItem("token", JSON.stringify(response));
       navigate("/cloths", { replace: true });
       }
       if (clicked && error === true) {
@@ -64,12 +64,18 @@ export const Login = () => {
   return (
     <div>
       <Navbar />
+
+
       <h2>Login</h2>
 
       <CustomizedDialogs>
         <br />
-        {loading ? <CircularProgress /> : null}
-        {error && clicked ? "Email or Password is wrong":null}
+        {loading ? (
+          <div className="errormsg" >
+            <CircularProgress />{" "}
+          </div>
+        ) : null}
+        {error && clicked ? <div className="errormsg">"Email or Password is wrong"</div> : null}
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />

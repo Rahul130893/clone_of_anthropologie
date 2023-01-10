@@ -160,3 +160,24 @@
   background-color: #282c34;
 }
 
+.errormsg{
+ 
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+  color: red;
+}
+
+.addedToCart{
+   text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+  color: teal;
+
+}
+.addedToCartError{
+   text-align: center;
+  font-weight: 700;
+  font-size: 26px;
+  color: red
+}

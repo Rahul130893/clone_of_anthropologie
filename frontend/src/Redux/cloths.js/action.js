@@ -83,7 +83,7 @@ const AddProCart = (product) => (dispatch) => {
   dispatch(Add_Pro_Req());
   Axios.post("https://anthropologie.onrender.com/cart", product)
     .then((r) => dispatch(Add_Pro_Succ(r.data)))
-    .catch((e) => dispatch(Add_Pro_Fail(e.data)));
+    .catch((e) => dispatch(Add_Pro_Fail(e.message)));
 };
 
 const Fetch_Cart_Req = (payload) => {
@@ -105,14 +105,10 @@ const Fetch_Cart_Fail = (payload) => {
   };
 };
 
-const fetchCart = (payload) => (dispatch) => {
+const fetchCart = (id) => (dispatch) => {
   dispatch(Fetch_Cart_Req());
-  Axios.get("https://anthropologie.onrender.com/cart", {
-    params: {
-      ...payload,
-    },
-  })
-    .then((r) => dispatch(Fetch_Cart_Succ(r.data.cartItems)))
+  Axios.get(`https://anthropologie.onrender.com/cart/singleUser/${id}`)
+    .then((r) => dispatch(Fetch_Cart_Succ(r.data)))
     .catch((e) => dispatch(Fetch_Cart_Fail(e.data)));
 };
 
@@ -141,9 +137,7 @@ export const deletCartItmes = (id) => (dispatch) => {
     .then((r) => {
       dispatch(delet_Cart_Succ(r.data));
     })
-    .then((r) => {
-      dispatch(fetchCart());
-    })
+    
 
     .catch((e) => dispatch(delet_Cart_Fail(e.message)));
 };

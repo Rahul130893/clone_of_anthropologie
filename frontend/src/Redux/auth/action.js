@@ -1,8 +1,11 @@
 import Axios from "axios";
+import { fetchCart } from "../cloths.js/action";
 
 export const LOGIN_REQ = "LOGIN_REQ";
 export const LOGIN_SUCC = "LOGIN_SUCC";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT_SUCC = "LOGOUT_SUCC"
+
 
 const logInReq = () => {
   return {
@@ -22,7 +25,14 @@ const logInFail = (payload) => {
   };
 };
 
-const logIn = (payload) => (dispatch) => {
+const logOutSucc = () => {
+  return {
+    type: LOGOUT_SUCC,
+
+  }
+}
+
+export  const logIn = (payload) => (dispatch) => {
   dispatch(logInReq());
     Axios.post("https://anthropologie.onrender.com/login", payload)
         //   .then((res)=> console.log(res))
@@ -32,4 +42,9 @@ const logIn = (payload) => (dispatch) => {
           dispatch(logInFail(e.data)));
 };
 
-export default logIn;
+ export const logOut = () => (dispatch) => {
+  dispatch(logOutSucc())
+  // dispatch(fetchCart(payload))
+}
+
+

@@ -4,18 +4,22 @@ import { fetchCart } from "../Redux/cloths.js/action";
 
 export const Counter = () => {
   const cart = useSelector((store) => store.clothData.cart);
-  const dispatch = useDispatch();
+   const auth = useSelector((store) => store.authReducer.auth);
 
+  const dispatch = useDispatch();
+  const response = JSON.parse(localStorage.getItem("token"))
+
+ console.log("c",auth)
   useEffect(() => {
-    if (cart?.length === 0) {
-      dispatch(fetchCart());
+    if ( response) {
+      dispatch(fetchCart(response.user._id));
     }
   }, [cart?.length, dispatch]);
 
   return (
     <div style={{ marginTop: "12px", color: "#4b5666"}}>
-       
-      {cart?.length ? cart.length : "Your Cart is Empty"}
+       {response=== false ? null : cart?.length ? cart.length:"Your Cart is empty"}
+      {/* {cart?.length ? cart.length : "Your Cart is Empty"} */}
       
     </div>
   );

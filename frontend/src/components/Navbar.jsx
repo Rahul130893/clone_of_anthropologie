@@ -8,6 +8,12 @@ import { Link } from "react-router-dom";
 import image1 from "../images/Anthropologie.svg";
 import logo2 from "../images/logo2.svg";
 import {Counter} from "./Counter"
+import { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux/es/exports";
+import { fetchCart } from "../Redux/cloths.js/action";
+import {logOut} from "../Redux/auth/action"
+import { useState } from "react";
 const Container = styled.div`
   border: 1px solid transparent;
   width: 100%;
@@ -83,9 +89,10 @@ const Icon = styled.div`
 
   cursor: pointer;
 `;
-const English = styled.p`
+const English = styled.div`
   font-size: 13px;
   font-family: sans-serif;
+  cursor: pointer;
 `;
 const Anthro = styled.div`
   width: 400px;
@@ -139,7 +146,31 @@ const NavP = styled.p`
 `;
 
 export const Navbar = () => {
+   const auth = useSelector((store) => store.authReducer.auth);
+
+  const response = JSON.parse(localStorage.getItem("token")) 
+  const [isToken, setIsToken]= useState(response)
   
+  const cart = useSelector((store) => store.clothData.cart);
+  const dispatch = useDispatch();
+  
+  const logout = () => {
+    
+    console.log("1",auth)
+    localStorage.setItem("token", null)
+    
+    dispatch(logOut(response.user._id));
+    console.log(cart)
+  }
+  useEffect(() => {
+     console.log("cart to zero")
+     if (cart?.length === 0 && response===true) {
+       dispatch(fetchCart(response.user._id));
+     } 
+   }, [cart?.length, dispatch]);
+console.log("nav",response != null);
+  
+    
   return (
     <Container>
       <Layers1>
@@ -166,22 +197,21 @@ export const Navbar = () => {
             <PersonOutlineOutlinedIcon />
           </Icon>
 
-          {/* <English>
-            <Link
-              to={"/signup"}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              SignUp /
-            </Link>
-          </English> */}
+         
 
           <English>
-            <Link
-              to={"/login"}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              SignIn / Signup
-            </Link>
+           
+              {response!= null ? (
+                <p onClick={()=> logout()}>Logout</p>
+              ) : (
+                <Link
+                  to={"/login"}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <p>SignIn / Signup</p>
+                </Link>
+              )}
+           
           </English>
         </IconDiv>
       </Layers2>

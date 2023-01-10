@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_REQ, LOGIN_SUCC } from "./action";
+import { LOGIN_FAIL, LOGIN_REQ, LOGIN_SUCC, LOGOUT_SUCC } from "./action";
 
 const initial = {
   auth: false,
@@ -27,6 +27,11 @@ export const authReducer = (state = initial, action) => {
         token: "",
         error: true,
       };
+    case LOGOUT_SUCC:
+      return {
+        auth: false,
+        token: ""
+      }
     default:
       return state;
   }
