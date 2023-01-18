@@ -15,14 +15,12 @@ export const Cart = () => {
 
   const dispatch = useDispatch();
 
-  //console.log(response)
-  // console.log("incart",auth)
+  
+   //console.log("incart",cart)
 
   useEffect(() => {
-   
-    const response = JSON.parse(localStorage.getItem("token"));
-     //dispatch(fetchCart(response.user._id))
-    if (response ) {
+
+    if (response) {
       console.log(response, "hello")
       dispatch(fetchCart(response.user._id));
     }

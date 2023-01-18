@@ -80,6 +80,7 @@ const Add_Pro_Fail = (payload) => {
 };
 
 const AddProCart = (product) => (dispatch) => {
+  console.log("product", product)
   dispatch(Add_Pro_Req());
   Axios.post("https://anthropologie.onrender.com/cart", product)
     .then((r) => dispatch(Add_Pro_Succ(r.data)))
@@ -106,6 +107,7 @@ const Fetch_Cart_Fail = (payload) => {
 };
 
 const fetchCart = (id) => (dispatch) => {
+  console.log("fethced", id)
   dispatch(Fetch_Cart_Req());
   Axios.get(`https://anthropologie.onrender.com/cart/singleUser/${id}`)
     .then((r) => dispatch(Fetch_Cart_Succ(r.data)))
@@ -137,7 +139,9 @@ export const deletCartItmes = (id) => (dispatch) => {
     .then((r) => {
       dispatch(delet_Cart_Succ(r.data));
     })
-    
+    .then((r) => {
+      dispatch(fetchCart());
+    })
 
     .catch((e) => dispatch(delet_Cart_Fail(e.message)));
 };

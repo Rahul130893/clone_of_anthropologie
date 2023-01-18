@@ -6,15 +6,14 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
 export const Product = () => {
-  const [clicked, setClicked]= useState(false)
+  const [clicked, setClicked] = useState(false);
   const auth = useSelector((store) => store.authReducer.auth);
   const error = useSelector((store) => store.clothData.error);
-   const response = JSON.parse(localStorage.getItem("token"));
-
+  const response = JSON.parse(localStorage.getItem("token"));
 
   const { _id } = useParams();
 
- // console.log(_id);
+ 
   const dispatch = useDispatch();
   const currentProduct = useSelector((store) => store.clothData.currentProduct);
 
@@ -23,21 +22,23 @@ export const Product = () => {
       dispatch(Single_FetchData(_id));
     }
   }, [dispatch, _id]);
-    console.log("current",currentProduct);
-    
-  const addHandler = () => {
-    setClicked(true)
-      currentProduct && dispatch(AddProCart(currentProduct));
-  }
 
-  console.log(error)
+  const addHandler = () => {
+    setClicked(true);
+    let CurrentProduct = { ...currentProduct, user_id: response.user._id };
+    const { _id, ...Product_to_post } = CurrentProduct;
+    
+    currentProduct && dispatch(AddProCart(Product_to_post));
+  };
+
+  console.log(error);
 
   return (
     <div>
       <Navbar />
       <br />
       <br />
-      {error != "" && clicked ? (
+      {error !== "" && clicked ? (
         <div className="addedToCartError">Already added</div>
       ) : error === "" && clicked ? (
         <div className="addedToCart">Added To Your Cart</div>

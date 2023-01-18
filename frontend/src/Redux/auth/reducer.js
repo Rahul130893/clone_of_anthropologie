@@ -30,7 +30,7 @@ export const authReducer = (state = initial, action) => {
     case LOGOUT_SUCC:
       return {
         auth: false,
-        token: ""
+        token: "",
       }
     default:
       return state;

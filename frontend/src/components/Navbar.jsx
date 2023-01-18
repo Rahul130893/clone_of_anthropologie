@@ -7,12 +7,11 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { Link } from "react-router-dom";
 import image1 from "../images/Anthropologie.svg";
 import logo2 from "../images/logo2.svg";
-import {Counter} from "./Counter"
+import { Counter } from "./Counter";
 import { useEffect } from "react";
-
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { fetchCart } from "../Redux/cloths.js/action";
-import {logOut} from "../Redux/auth/action"
+import { logOut } from "../Redux/auth/action";
 import { useState } from "react";
 const Container = styled.div`
   border: 1px solid transparent;
@@ -20,8 +19,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
- 
- 
 `;
 const Layers1 = styled.div`
   border: 1px solid green;
@@ -124,7 +121,7 @@ const InputBox = styled.input`
 
 const Navdiv = styled.div`
   width: 80%;
-  
+
   height: 100%;
   margin-left: 73px;
   display: flex;
@@ -132,11 +129,9 @@ const Navdiv = styled.div`
   font-size: 13px;
 `;
 const Nav = styled.div`
-  
-
   align-items: center;
-  &:hover{
-    color:teal;
+  &:hover {
+    color: teal;
     border: teal;
   }
 `;
@@ -146,31 +141,28 @@ const NavP = styled.p`
 `;
 
 export const Navbar = () => {
-   const auth = useSelector((store) => store.authReducer.auth);
+  const auth = useSelector((store) => store.authReducer.auth);
 
-  const response = JSON.parse(localStorage.getItem("token")) 
-  const [isToken, setIsToken]= useState(response)
-  
+  const response = JSON.parse(localStorage.getItem("token"));
+  const [isToken, setIsToken] = useState(response);
+
   const cart = useSelector((store) => store.clothData.cart);
   const dispatch = useDispatch();
-  
+
   const logout = () => {
-    
-    console.log("1",auth)
-    localStorage.setItem("token", null)
-    
-    dispatch(logOut(response.user._id));
-    console.log(cart)
-  }
+    localStorage.setItem("token", null);
+    dispatch(logOut());
+    setIsToken(null);
+  };
+
+
   useEffect(() => {
-     console.log("cart to zero")
-     if (cart?.length === 0 && response===true) {
-       dispatch(fetchCart(response.user._id));
-     } 
-   }, [cart?.length, dispatch]);
-console.log("nav",response != null);
+    if (cart?.length === 0 && isToken) {
+      dispatch(fetchCart(response.user._id));
+    }
+  }, [cart?.length, dispatch]);
   
-    
+
   return (
     <Container>
       <Layers1>
@@ -187,7 +179,9 @@ console.log("nav",response != null);
           <Icon>
             <LanguageOutlinedIcon />
           </Icon>
-          <English>English</English>
+          <English>
+            <p>English</p>
+          </English>
           <Icon>
             <KeyboardArrowDownIcon />
           </Icon>
@@ -197,21 +191,17 @@ console.log("nav",response != null);
             <PersonOutlineOutlinedIcon />
           </Icon>
 
-         
-
           <English>
-           
-              {response!= null ? (
-                <p onClick={()=> logout()}>Logout</p>
-              ) : (
-                <Link
-                  to={"/login"}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <p>SignIn / Signup</p>
-                </Link>
-              )}
-           
+            {response != null ? (
+              <p onClick={() => logout()}>Logout</p>
+            ) : (
+              <Link
+                to={"/login"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <p>SignIn / Signup</p>
+              </Link>
+            )}
           </English>
         </IconDiv>
       </Layers2>

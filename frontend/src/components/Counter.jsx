@@ -9,17 +9,18 @@ export const Counter = () => {
   const dispatch = useDispatch();
   const response = JSON.parse(localStorage.getItem("token"))
 
- console.log("c",auth)
+  
+  
   useEffect(() => {
-    if ( response) {
+    if (response) {
       dispatch(fetchCart(response.user._id));
     }
   }, [cart?.length, dispatch]);
 
   return (
     <div style={{ marginTop: "12px", color: "#4b5666"}}>
-       {response=== false ? null : cart?.length ? cart.length:"Your Cart is empty"}
-      {/* {cart?.length ? cart.length : "Your Cart is Empty"} */}
+       
+      {auth ===false ? "Not logged in":  cart.length !==0 ? cart.length:"Your cart is empty"}
       
     </div>
   );

@@ -42,7 +42,8 @@ export  const logIn = (payload) => (dispatch) => {
           dispatch(logInFail(e.data)));
 };
 
- export const logOut = () => (dispatch) => {
+export const logOut = () => (dispatch) => { 
+   
   dispatch(logOutSucc())
   // dispatch(fetchCart(payload))
 }

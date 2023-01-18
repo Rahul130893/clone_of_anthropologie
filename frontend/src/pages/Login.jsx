@@ -48,12 +48,11 @@ export const Login = () => {
     setClicked(true);
     dispatch(logIn({ email: userEmail, password: userPass }));
   };
-  //console.log("two", response.token, error, auth);
   useEffect(() => {
     
     if (response.token && auth && clicked) {
       setLoading(false);
-          localStorage.setItem("token", JSON.stringify(response));
+      localStorage.setItem("token", JSON.stringify(response));
       navigate("/cloths", { replace: true });
       }
       if (clicked && error === true) {
